@@ -6,10 +6,6 @@
   font-size: 20px;
 }
 
-/* body {
-  height: 100vh;
-} */
-
 header {
   background-color: #f63232;
   padding: 20px;
@@ -54,11 +50,12 @@ header h1 {
 }
 
 nav {
-  margin-top: -4px;
+  margin-top: -5px;
   background-color: #f4f4f4;
   padding: 20px;
   position: sticky;
   top: 90px;
+  z-index: 1;
 }
 
 nav ul {
@@ -90,9 +87,8 @@ main {
 }
 
 main article,
-section h2 p,
-ul {
-  margin: 0px 50px;
+section h2 p {
+  margin: 0px 150px;
 }
 
 article h2 {
@@ -133,16 +129,19 @@ section.join {
   color: #4b4b4b;
 }
 
-.join p {
-  margin: 20px 100px;
+section.join p {
+  margin: 0px 150px;
+  text-align: justify;
 }
 
 .join h2 {
   font-size: 36px;
+  margin-bottom: 20px;
 }
 
 form input {
-  margin: 20px 0;
+  cursor: pointer;
+  margin: 30px 0 0 0;
   padding: 10px 20px;
   font-size: 24;
   border-radius: 28px;
@@ -150,10 +149,136 @@ form input {
 }
 
 footer {
-  margin-top: -80px;
   width: 100%;
   background-color: #f63232;
   color: white;
   padding: 10px;
   text-align: center;
+}
+
+/* pseudo classes */
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+.images li:hover {
+  position: relative;
+  top: -4px;
+}
+
+form input:focus {
+  border: 4px solid #f63232;
+  outline: none;
+}
+
+form input:valid {
+  border: 4px solid #71d300;
+}
+
+/* psuedo elements */
+
+p::selection {
+  background-color: #f63232;
+  color: white;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 1400px) {
+  .banner .welcome h2 {
+    font-size: 60px;
+  }
+
+  nav li a {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .banner .welcome h2 {
+    font-size: 40px;
+  }
+  main article,
+  section h2 p {
+    margin: 0px 90px;
+  }
+  section.join p {
+    margin: 0px 90px;
+  }
+  nav li {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .banner .welcome h2 {
+    font-size: 40px;
+  }
+  main article,
+  section h2 p {
+    margin: 0px 60px;
+  }
+  section.join p {
+    margin: 0px 60px;
+  }
+  nav li {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .banner .welcome {
+    text-align: center;
+    margin-top: -5px;
+    position: relative;
+    padding: 15px;
+  }
+  .banner .welcome br {
+    display: none;
+  }
+  .banner .welcome h2 {
+    font-size: 25px;
+  }
+  .banner .welcome span {
+    font-size: 1em;
+  }
+  nav a {
+    font-size: 16px;
+  }
+  .images {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .images li {
+    margin: 20px;
+    width: 80%;
+  }
+  nav li a {
+    font-size: 16px;
+  }
+
+  main article,
+  section h2 p {
+    margin: 0px 30px;
+  }
+  section.join p {
+    margin: 0px 30px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  header {
+    position: relative;
+  }
+
+  nav {
+    top: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5em;
+  }
 }
